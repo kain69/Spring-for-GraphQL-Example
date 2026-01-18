@@ -1,0 +1,16 @@
+spring:
+
+  application:
+    name: GraphQL
+
+  graphql:
+    graphiql:
+      enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/graphql
+    username: graphql
+    password: graphql
+
+  jpa:
+    show-sql: true
