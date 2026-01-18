@@ -6,35 +6,24 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import ru.karmazin.graphql.entity.Post;
 import ru.karmazin.graphql.entity.User;
-import ru.karmazin.graphql.repository.PostRepository;
-import ru.karmazin.graphql.repository.UserRepository;
+import ru.karmazin.graphql.service.UserService;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
 public class UserController {
 
-    private final PostRepository postRepository;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @QueryMapping
     public List<User> users() {
-        return userRepository.findAll();
+        return userService.getAllUsers();
     }
 
     @BatchMapping(typeName = "User", field = "posts")
     public Map<User, List<Post>> batchPosts(List<User> users) {
-        List<UUID> userIds = users.stream()
-            .map(User::getId)
-            .toList();
-
-        List<Post> posts = postRepository.findByUserIdIn(userIds);
-
-        return posts.stream()
-            .collect(Collectors.groupingBy(Post::getUser));
+        return userService.getPostsForUsers(users);
     }
 }
