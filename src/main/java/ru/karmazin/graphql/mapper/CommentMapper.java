@@ -1,7 +1,7 @@
 package ru.karmazin.graphql.mapper;
 
 import org.mapstruct.Mapper;
-import ru.karmazin.graphql.dto.CommentDto;
+import ru.karmazin.graphql.graphql.dto.CommentDto;
 import ru.karmazin.graphql.model.Comment;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package ru.karmazin.graphql.mapper;
 
 import org.mapstruct.Mapper;
-import ru.karmazin.graphql.dto.UserDto;
+import ru.karmazin.graphql.graphql.dto.UserDto;
 import ru.karmazin.graphql.model.User;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.karmazin.graphql.dto.input;
+package ru.karmazin.graphql.graphql.dto.input;
 
 public record CreateUserInput(String name) {
 }

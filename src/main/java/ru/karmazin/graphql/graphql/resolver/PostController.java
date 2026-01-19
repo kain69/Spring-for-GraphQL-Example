@@ -1,14 +1,14 @@
-package ru.karmazin.graphql.controller;
+package ru.karmazin.graphql.graphql.resolver;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.BatchMapping;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.stereotype.Controller;
-import ru.karmazin.graphql.dto.CommentDto;
-import ru.karmazin.graphql.dto.PostDto;
-import ru.karmazin.graphql.dto.UserDto;
-import ru.karmazin.graphql.dto.input.CreatePostInput;
+import ru.karmazin.graphql.graphql.dto.CommentDto;
+import ru.karmazin.graphql.graphql.dto.PostDto;
+import ru.karmazin.graphql.graphql.dto.UserDto;
+import ru.karmazin.graphql.graphql.dto.input.CreatePostInput;
 import ru.karmazin.graphql.service.PostService;
 import ru.karmazin.graphql.service.UserService;
 

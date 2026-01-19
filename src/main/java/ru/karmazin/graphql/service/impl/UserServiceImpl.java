@@ -2,9 +2,9 @@ package ru.karmazin.graphql.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.karmazin.graphql.dto.PostDto;
-import ru.karmazin.graphql.dto.UserDto;
-import ru.karmazin.graphql.dto.input.CreateUserInput;
+import ru.karmazin.graphql.graphql.dto.PostDto;
+import ru.karmazin.graphql.graphql.dto.UserDto;
+import ru.karmazin.graphql.graphql.dto.input.CreateUserInput;
 import ru.karmazin.graphql.model.Post;
 import ru.karmazin.graphql.model.User;
 import ru.karmazin.graphql.mapper.PostMapper;

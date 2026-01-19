@@ -1,4 +1,4 @@
-package ru.karmazin.graphql.dto;
+package ru.karmazin.graphql.graphql.dto;
 
 import java.util.List;
 import java.util.UUID;

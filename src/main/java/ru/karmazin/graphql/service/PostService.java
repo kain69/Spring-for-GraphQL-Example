@@ -1,8 +1,8 @@
 package ru.karmazin.graphql.service;
 
-import ru.karmazin.graphql.dto.CommentDto;
-import ru.karmazin.graphql.dto.PostDto;
-import ru.karmazin.graphql.dto.input.CreatePostInput;
+import ru.karmazin.graphql.graphql.dto.CommentDto;
+import ru.karmazin.graphql.graphql.dto.PostDto;
+import ru.karmazin.graphql.graphql.dto.input.CreatePostInput;
 
 import java.util.List;
 import java.util.Map;
