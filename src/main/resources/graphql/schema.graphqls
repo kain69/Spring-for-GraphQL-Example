@@ -1,20 +1,23 @@
+scalar UUID
+
 type Query {
-    users: [User]
+    users: [UserDto]
+    user(id: UUID!): UserDto!
 }
 
-type User {
-    id: ID!
+type UserDto {
+    id: UUID!
     name: String!
-    posts: [Post]
+    posts: [PostDto]
 }
 
-type Post {
-    id: ID!
+type PostDto {
+    id: UUID!
     title: String!
-    comments: [Comment]
+    comments: [CommentDto]
 }
 
-type Comment {
-    id: ID!
+type CommentDto {
+    id: UUID!
     text: String!
 }

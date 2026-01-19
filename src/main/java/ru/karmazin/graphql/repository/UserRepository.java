@@ -2,7 +2,7 @@ package ru.karmazin.graphql.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.karmazin.graphql.entity.User;
+import ru.karmazin.graphql.model.User;
 
 import java.util.UUID;
 

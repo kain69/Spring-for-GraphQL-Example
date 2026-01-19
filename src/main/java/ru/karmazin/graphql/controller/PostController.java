@@ -1,10 +1,10 @@
-package ru.karmazin.graphql.resolver;
+package ru.karmazin.graphql.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.BatchMapping;
 import org.springframework.stereotype.Controller;
-import ru.karmazin.graphql.entity.Comment;
-import ru.karmazin.graphql.entity.Post;
+import ru.karmazin.graphql.dto.CommentDto;
+import ru.karmazin.graphql.dto.PostDto;
 import ru.karmazin.graphql.service.PostService;
 
 import java.util.List;
@@ -16,8 +16,8 @@ public class PostController {
 
     private final PostService postService;
 
-    @BatchMapping(typeName = "Post", field = "comments")
-    public Map<Post, List<Comment>> batchComments(List<Post> posts) {
+    @BatchMapping(typeName = "PostDto", field = "comments")
+    public Map<PostDto, List<CommentDto>> batchComments(List<PostDto> posts) {
         return postService.getCommentsForPosts(posts);
     }
 }

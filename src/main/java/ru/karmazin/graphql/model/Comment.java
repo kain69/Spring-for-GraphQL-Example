@@ -1,4 +1,4 @@
-package ru.karmazin.graphql.entity;
+package ru.karmazin.graphql.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

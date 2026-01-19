@@ -1,12 +1,10 @@
-package ru.karmazin.graphql.entity;
+package ru.karmazin.graphql.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
@@ -18,22 +16,18 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "posts")
+@Table(name = "users")
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Post {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @EqualsAndHashCode.Include
     private UUID id;
 
-    private String title;
+    private String name;
 
-    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
-    private List<Comment> comments = new ArrayList<>();
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Post> posts = new ArrayList<>();
 }
