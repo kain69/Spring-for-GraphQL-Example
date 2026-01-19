@@ -3,10 +3,13 @@ package ru.karmazin.graphql.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.BatchMapping;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import ru.karmazin.graphql.dto.PostDto;
 import ru.karmazin.graphql.dto.UserDto;
+import ru.karmazin.graphql.dto.input.CreateUserInput;
+import ru.karmazin.graphql.service.UserService;
 import ru.karmazin.graphql.service.impl.UserServiceImpl;
 
 import java.util.List;
@@ -17,7 +20,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @QueryMapping
     public List<UserDto> users() {
@@ -27,6 +30,11 @@ public class UserController {
     @QueryMapping
     public UserDto user(@Argument UUID id) {
         return userService.getUser(id);
+    }
+
+    @MutationMapping
+    public UserDto createUser(@Argument CreateUserInput input) {
+        return userService.createUser(input);
     }
 
     @BatchMapping(typeName = "UserDto", field = "posts")

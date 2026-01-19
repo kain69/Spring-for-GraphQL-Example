@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.karmazin.graphql.dto.PostDto;
 import ru.karmazin.graphql.dto.UserDto;
+import ru.karmazin.graphql.dto.input.CreateUserInput;
 import ru.karmazin.graphql.model.Post;
 import ru.karmazin.graphql.model.User;
 import ru.karmazin.graphql.mapper.PostMapper;
@@ -57,5 +58,11 @@ public class UserServiceImpl implements UserService {
                 Function.identity(),
                 user -> postsByUserId.getOrDefault(user.id(), List.of())
             ));
+    }
+
+    @Override
+    public UserDto createUser(CreateUserInput input) {
+        User newUser = new User(input.name());
+        return userMapper.toDto(userRepository.save(newUser));
     }
 }

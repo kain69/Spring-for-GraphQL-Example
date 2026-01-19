@@ -5,6 +5,11 @@ type Query {
     user(id: UUID!): UserDto!
 }
 
+type Mutation {
+    createUser(input: CreateUserInput!): UserDto!
+    createPost(input: CreatePostInput!): UserDto!
+}
+
 type UserDto {
     id: UUID!
     name: String!
@@ -20,4 +25,13 @@ type PostDto {
 type CommentDto {
     id: UUID!
     text: String!
+}
+
+input CreateUserInput {
+    name: String!
+}
+
+input CreatePostInput {
+    title: String!
+    userId: UUID!
 }

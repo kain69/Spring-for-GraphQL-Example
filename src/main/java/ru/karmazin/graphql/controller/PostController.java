@@ -1,11 +1,16 @@
 package ru.karmazin.graphql.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.BatchMapping;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.stereotype.Controller;
 import ru.karmazin.graphql.dto.CommentDto;
 import ru.karmazin.graphql.dto.PostDto;
+import ru.karmazin.graphql.dto.UserDto;
+import ru.karmazin.graphql.dto.input.CreatePostInput;
 import ru.karmazin.graphql.service.PostService;
+import ru.karmazin.graphql.service.UserService;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +20,13 @@ import java.util.Map;
 public class PostController {
 
     private final PostService postService;
+    private final UserService userService;
+
+    @MutationMapping
+    public UserDto createPost(@Argument CreatePostInput input) {
+        postService.createPost(input);
+        return userService.getUser(input.userId());
+    }
 
     @BatchMapping(typeName = "PostDto", field = "comments")
     public Map<PostDto, List<CommentDto>> batchComments(List<PostDto> posts) {
